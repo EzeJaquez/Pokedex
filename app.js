@@ -3,7 +3,7 @@ const pokedex = document.getElementById('pokedex');
 const get_pokedex = () => {
     const promesas = [];
 
-    for (let i = 1; i <= 151; i++){
+    for (let i = 1; i <= 649; i++){
         const url = `https://pokeapi.co/api/v2/pokemon/${i}`
         promesas.push(fetch(url).then(res => res.json()));
         // fetch(url)
@@ -17,7 +17,7 @@ const get_pokedex = () => {
         const pokemons = resultados.map((result) => ({
             name : result.name,
             id : result.id,
-            img : result.sprites["front_default"],
+            img : result.sprites.other.dream_world["front_default"],
             type : result.types.map(type => type.type.name)
         }));
 
